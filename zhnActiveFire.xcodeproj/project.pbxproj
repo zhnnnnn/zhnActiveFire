@@ -15,6 +15,27 @@
 		CD1E53281D05669A00CC42C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1E53261D05669A00CC42C7 /* LaunchScreen.storyboard */; };
 		CD1E53331D05669A00CC42C7 /* zhnActiveFireTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53321D05669A00CC42C7 /* zhnActiveFireTests.m */; };
 		CD1E533E1D05669A00CC42C7 /* zhnActiveFireUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E533D1D05669A00CC42C7 /* zhnActiveFireUITests.m */; };
+		CD1E534D1D05675D00CC42C7 /* zhnAtiveFireView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E534C1D05675D00CC42C7 /* zhnAtiveFireView.m */; };
+		CD1E53501D06919700CC42C7 /* zhnShowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E534F1D06919700CC42C7 /* zhnShowImageView.m */; };
+		CD1E53651D06929000CC42C7 /* UIImageView+ZHNimage.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53541D06929000CC42C7 /* UIImageView+ZHNimage.m */; };
+		CD1E53661D06929000CC42C7 /* UIImageView+ZHNimageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53561D06929000CC42C7 /* UIImageView+ZHNimageCache.m */; };
+		CD1E53671D06929000CC42C7 /* ZHNdiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53581D06929000CC42C7 /* ZHNdiskCache.m */; };
+		CD1E53681D06929000CC42C7 /* ZHNimageDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E535A1D06929000CC42C7 /* ZHNimageDownLoader.m */; };
+		CD1E53691D06929000CC42C7 /* ZHNmemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E535C1D06929000CC42C7 /* ZHNmemoryCache.m */; };
+		CD1E536A1D06929000CC42C7 /* ZHNunlimitedCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E535E1D06929000CC42C7 /* ZHNunlimitedCarouselView.m */; };
+		CD1E536B1D06929000CC42C7 /* ZHNunlimitedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53601D06929000CC42C7 /* ZHNunlimitedCell.m */; };
+		CD1E536C1D06929000CC42C7 /* ZHNwebImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53621D06929000CC42C7 /* ZHNwebImageCache.m */; };
+		CD1E536D1D06929000CC42C7 /* ZHNwebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53641D06929000CC42C7 /* ZHNwebImageOperation.m */; };
+		CD1E538A1D06997100CC42C7 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53711D06997100CC42C7 /* MASCompositeConstraint.m */; };
+		CD1E538B1D06997100CC42C7 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53741D06997100CC42C7 /* MASConstraint.m */; };
+		CD1E538C1D06997100CC42C7 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53761D06997100CC42C7 /* MASConstraintMaker.m */; };
+		CD1E538D1D06997100CC42C7 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53781D06997100CC42C7 /* MASLayoutConstraint.m */; };
+		CD1E538E1D06997100CC42C7 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E537C1D06997100CC42C7 /* MASViewAttribute.m */; };
+		CD1E538F1D06997100CC42C7 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E537E1D06997100CC42C7 /* MASViewConstraint.m */; };
+		CD1E53901D06997100CC42C7 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53801D06997100CC42C7 /* NSArray+MASAdditions.m */; };
+		CD1E53911D06997100CC42C7 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53831D06997100CC42C7 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		CD1E53921D06997100CC42C7 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53851D06997100CC42C7 /* View+MASAdditions.m */; };
+		CD1E53931D06997100CC42C7 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53881D06997100CC42C7 /* ViewController+MASAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +72,53 @@
 		CD1E53391D05669A00CC42C7 /* zhnActiveFireUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zhnActiveFireUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1E533D1D05669A00CC42C7 /* zhnActiveFireUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zhnActiveFireUITests.m; sourceTree = "<group>"; };
 		CD1E533F1D05669A00CC42C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD1E534B1D05675D00CC42C7 /* zhnAtiveFireView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhnAtiveFireView.h; sourceTree = "<group>"; };
+		CD1E534C1D05675D00CC42C7 /* zhnAtiveFireView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhnAtiveFireView.m; sourceTree = "<group>"; };
+		CD1E534E1D06919700CC42C7 /* zhnShowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhnShowImageView.h; sourceTree = "<group>"; };
+		CD1E534F1D06919700CC42C7 /* zhnShowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhnShowImageView.m; sourceTree = "<group>"; };
+		CD1E53531D06929000CC42C7 /* UIImageView+ZHNimage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ZHNimage.h"; sourceTree = "<group>"; };
+		CD1E53541D06929000CC42C7 /* UIImageView+ZHNimage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ZHNimage.m"; sourceTree = "<group>"; };
+		CD1E53551D06929000CC42C7 /* UIImageView+ZHNimageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ZHNimageCache.h"; sourceTree = "<group>"; };
+		CD1E53561D06929000CC42C7 /* UIImageView+ZHNimageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ZHNimageCache.m"; sourceTree = "<group>"; };
+		CD1E53571D06929000CC42C7 /* ZHNdiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNdiskCache.h; sourceTree = "<group>"; };
+		CD1E53581D06929000CC42C7 /* ZHNdiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNdiskCache.m; sourceTree = "<group>"; };
+		CD1E53591D06929000CC42C7 /* ZHNimageDownLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNimageDownLoader.h; sourceTree = "<group>"; };
+		CD1E535A1D06929000CC42C7 /* ZHNimageDownLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNimageDownLoader.m; sourceTree = "<group>"; };
+		CD1E535B1D06929000CC42C7 /* ZHNmemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNmemoryCache.h; sourceTree = "<group>"; };
+		CD1E535C1D06929000CC42C7 /* ZHNmemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNmemoryCache.m; sourceTree = "<group>"; };
+		CD1E535D1D06929000CC42C7 /* ZHNunlimitedCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNunlimitedCarouselView.h; sourceTree = "<group>"; };
+		CD1E535E1D06929000CC42C7 /* ZHNunlimitedCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNunlimitedCarouselView.m; sourceTree = "<group>"; };
+		CD1E535F1D06929000CC42C7 /* ZHNunlimitedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNunlimitedCell.h; sourceTree = "<group>"; };
+		CD1E53601D06929000CC42C7 /* ZHNunlimitedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNunlimitedCell.m; sourceTree = "<group>"; };
+		CD1E53611D06929000CC42C7 /* ZHNwebImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNwebImageCache.h; sourceTree = "<group>"; };
+		CD1E53621D06929000CC42C7 /* ZHNwebImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNwebImageCache.m; sourceTree = "<group>"; };
+		CD1E53631D06929000CC42C7 /* ZHNwebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHNwebImageOperation.h; sourceTree = "<group>"; };
+		CD1E53641D06929000CC42C7 /* ZHNwebImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHNwebImageOperation.m; sourceTree = "<group>"; };
+		CD1E53701D06997100CC42C7 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		CD1E53711D06997100CC42C7 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		CD1E53721D06997100CC42C7 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		CD1E53731D06997100CC42C7 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		CD1E53741D06997100CC42C7 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		CD1E53751D06997100CC42C7 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		CD1E53761D06997100CC42C7 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		CD1E53771D06997100CC42C7 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		CD1E53781D06997100CC42C7 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		CD1E53791D06997100CC42C7 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		CD1E537A1D06997100CC42C7 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		CD1E537B1D06997100CC42C7 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		CD1E537C1D06997100CC42C7 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		CD1E537D1D06997100CC42C7 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		CD1E537E1D06997100CC42C7 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		CD1E537F1D06997100CC42C7 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		CD1E53801D06997100CC42C7 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		CD1E53811D06997100CC42C7 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		CD1E53821D06997100CC42C7 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		CD1E53831D06997100CC42C7 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		CD1E53841D06997100CC42C7 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		CD1E53851D06997100CC42C7 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		CD1E53861D06997100CC42C7 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		CD1E53871D06997100CC42C7 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		CD1E53881D06997100CC42C7 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +173,15 @@
 				CD1E531C1D05669A00CC42C7 /* AppDelegate.m */,
 				CD1E531E1D05669A00CC42C7 /* ViewController.h */,
 				CD1E531F1D05669A00CC42C7 /* ViewController.m */,
+				CD1E534E1D06919700CC42C7 /* zhnShowImageView.h */,
+				CD1E534F1D06919700CC42C7 /* zhnShowImageView.m */,
+				CD1E534B1D05675D00CC42C7 /* zhnAtiveFireView.h */,
+				CD1E534C1D05675D00CC42C7 /* zhnAtiveFireView.m */,
 				CD1E53211D05669A00CC42C7 /* Main.storyboard */,
 				CD1E53241D05669A00CC42C7 /* Assets.xcassets */,
 				CD1E53261D05669A00CC42C7 /* LaunchScreen.storyboard */,
 				CD1E53291D05669A00CC42C7 /* Info.plist */,
+				CD1E53941D06997900CC42C7 /* lib */,
 				CD1E53181D05669A00CC42C7 /* Supporting Files */,
 			);
 			path = zhnActiveFire;
@@ -138,6 +211,72 @@
 				CD1E533F1D05669A00CC42C7 /* Info.plist */,
 			);
 			path = zhnActiveFireUITests;
+			sourceTree = "<group>";
+		};
+		CD1E53511D06929000CC42C7 /* zhncustomWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E53531D06929000CC42C7 /* UIImageView+ZHNimage.h */,
+				CD1E53541D06929000CC42C7 /* UIImageView+ZHNimage.m */,
+				CD1E53551D06929000CC42C7 /* UIImageView+ZHNimageCache.h */,
+				CD1E53561D06929000CC42C7 /* UIImageView+ZHNimageCache.m */,
+				CD1E53571D06929000CC42C7 /* ZHNdiskCache.h */,
+				CD1E53581D06929000CC42C7 /* ZHNdiskCache.m */,
+				CD1E53591D06929000CC42C7 /* ZHNimageDownLoader.h */,
+				CD1E535A1D06929000CC42C7 /* ZHNimageDownLoader.m */,
+				CD1E535B1D06929000CC42C7 /* ZHNmemoryCache.h */,
+				CD1E535C1D06929000CC42C7 /* ZHNmemoryCache.m */,
+				CD1E535D1D06929000CC42C7 /* ZHNunlimitedCarouselView.h */,
+				CD1E535E1D06929000CC42C7 /* ZHNunlimitedCarouselView.m */,
+				CD1E535F1D06929000CC42C7 /* ZHNunlimitedCell.h */,
+				CD1E53601D06929000CC42C7 /* ZHNunlimitedCell.m */,
+				CD1E53611D06929000CC42C7 /* ZHNwebImageCache.h */,
+				CD1E53621D06929000CC42C7 /* ZHNwebImageCache.m */,
+				CD1E53631D06929000CC42C7 /* ZHNwebImageOperation.h */,
+				CD1E53641D06929000CC42C7 /* ZHNwebImageOperation.m */,
+			);
+			path = zhncustomWebImage;
+			sourceTree = "<group>";
+		};
+		CD1E536E1D06997100CC42C7 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E53701D06997100CC42C7 /* MASCompositeConstraint.h */,
+				CD1E53711D06997100CC42C7 /* MASCompositeConstraint.m */,
+				CD1E53721D06997100CC42C7 /* MASConstraint+Private.h */,
+				CD1E53731D06997100CC42C7 /* MASConstraint.h */,
+				CD1E53741D06997100CC42C7 /* MASConstraint.m */,
+				CD1E53751D06997100CC42C7 /* MASConstraintMaker.h */,
+				CD1E53761D06997100CC42C7 /* MASConstraintMaker.m */,
+				CD1E53771D06997100CC42C7 /* MASLayoutConstraint.h */,
+				CD1E53781D06997100CC42C7 /* MASLayoutConstraint.m */,
+				CD1E53791D06997100CC42C7 /* Masonry.h */,
+				CD1E537A1D06997100CC42C7 /* MASUtilities.h */,
+				CD1E537B1D06997100CC42C7 /* MASViewAttribute.h */,
+				CD1E537C1D06997100CC42C7 /* MASViewAttribute.m */,
+				CD1E537D1D06997100CC42C7 /* MASViewConstraint.h */,
+				CD1E537E1D06997100CC42C7 /* MASViewConstraint.m */,
+				CD1E537F1D06997100CC42C7 /* NSArray+MASAdditions.h */,
+				CD1E53801D06997100CC42C7 /* NSArray+MASAdditions.m */,
+				CD1E53811D06997100CC42C7 /* NSArray+MASShorthandAdditions.h */,
+				CD1E53821D06997100CC42C7 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				CD1E53831D06997100CC42C7 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				CD1E53841D06997100CC42C7 /* View+MASAdditions.h */,
+				CD1E53851D06997100CC42C7 /* View+MASAdditions.m */,
+				CD1E53861D06997100CC42C7 /* View+MASShorthandAdditions.h */,
+				CD1E53871D06997100CC42C7 /* ViewController+MASAdditions.h */,
+				CD1E53881D06997100CC42C7 /* ViewController+MASAdditions.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		CD1E53941D06997900CC42C7 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E536E1D06997100CC42C7 /* Masonry */,
+				CD1E53511D06929000CC42C7 /* zhncustomWebImage */,
+			);
+			name = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +409,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1E538B1D06997100CC42C7 /* MASConstraint.m in Sources */,
+				CD1E53671D06929000CC42C7 /* ZHNdiskCache.m in Sources */,
+				CD1E53931D06997100CC42C7 /* ViewController+MASAdditions.m in Sources */,
+				CD1E53681D06929000CC42C7 /* ZHNimageDownLoader.m in Sources */,
+				CD1E536A1D06929000CC42C7 /* ZHNunlimitedCarouselView.m in Sources */,
 				CD1E53201D05669A00CC42C7 /* ViewController.m in Sources */,
+				CD1E538A1D06997100CC42C7 /* MASCompositeConstraint.m in Sources */,
+				CD1E53651D06929000CC42C7 /* UIImageView+ZHNimage.m in Sources */,
+				CD1E538C1D06997100CC42C7 /* MASConstraintMaker.m in Sources */,
+				CD1E53921D06997100CC42C7 /* View+MASAdditions.m in Sources */,
+				CD1E53691D06929000CC42C7 /* ZHNmemoryCache.m in Sources */,
+				CD1E538E1D06997100CC42C7 /* MASViewAttribute.m in Sources */,
+				CD1E53501D06919700CC42C7 /* zhnShowImageView.m in Sources */,
+				CD1E53911D06997100CC42C7 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				CD1E536D1D06929000CC42C7 /* ZHNwebImageOperation.m in Sources */,
 				CD1E531D1D05669A00CC42C7 /* AppDelegate.m in Sources */,
+				CD1E536B1D06929000CC42C7 /* ZHNunlimitedCell.m in Sources */,
+				CD1E53901D06997100CC42C7 /* NSArray+MASAdditions.m in Sources */,
 				CD1E531A1D05669A00CC42C7 /* main.m in Sources */,
+				CD1E538F1D06997100CC42C7 /* MASViewConstraint.m in Sources */,
+				CD1E53661D06929000CC42C7 /* UIImageView+ZHNimageCache.m in Sources */,
+				CD1E536C1D06929000CC42C7 /* ZHNwebImageCache.m in Sources */,
+				CD1E538D1D06997100CC42C7 /* MASLayoutConstraint.m in Sources */,
+				CD1E534D1D05675D00CC42C7 /* zhnAtiveFireView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +656,7 @@
 				CD1E53441D05669A00CC42C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD1E53451D05669A00CC42C7 /* Build configuration list for PBXNativeTarget "zhnActiveFireTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +665,7 @@
 				CD1E53471D05669A00CC42C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD1E53481D05669A00CC42C7 /* Build configuration list for PBXNativeTarget "zhnActiveFireUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +674,7 @@
 				CD1E534A1D05669A00CC42C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
