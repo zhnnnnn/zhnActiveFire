@@ -18,42 +18,25 @@
 #define noticeDisLikeView topView.subviews.firstObject.subviews.lastObject
 // 显示内容的view
 #define showContentView topView.subviews.firstObject.subviews.firstObject
-static const CGFloat KWpadding = 10;
-static const CGFloat KHpadding = 10;
-static const CGFloat KRotashakeRange = 0.0005;
-static const CGFloat kLikeDislikePercent = 0.5;
-static const CGFloat KnoticeViewWidthHeight = 50;
+static const CGFloat KWpadding = 10;// x轴上的padding
+static const CGFloat KHpadding = 5;// y轴上的padding
+static const CGFloat KRotashakeRange = 0.0005;// 拖动转动的幅度
+static const CGFloat kLikeDislikePercent = 0.5;// 在百分之多少的情况是选择成功
+static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的view的 宽高
 @interface zhnAtiveFireView()
-@property (nonatomic,copy) NSArray * girlImageArray;
 @property (nonatomic,assign) CGPoint startPoint;
+@property (nonatomic,assign) NSInteger currentCount;// 有多少个数据
+@property (nonatomic,assign) NSInteger currentIndex;// 当前最上面显示的是第几组数据
 @property (nonatomic,assign) CGPoint topViewOldCenter;
-
 @property (nonatomic,strong) NSMutableArray * subViewOldSizeArry;
 @property (nonatomic,strong) NSMutableArray * subViewOldCenterArray;
-
 @property (nonatomic,strong) UITapGestureRecognizer * tapGes;
 
-@property (nonatomic,assign) NSInteger currentCount;
-@property (nonatomic,assign) NSInteger currentIndex;
 @end
 
 
 
 @implementation zhnAtiveFireView
-
-//- (instancetype)initWithHotGirlsImageArray:(NSArray <NSString *> *)girlImageArray frame:(CGRect)frame{
-//    
-//    if (self = [super initWithFrame:frame]) {
-//        self.girlImageArray = girlImageArray;
-//        
-//        
-//    }
-//    return self;
-//}
-//
-//+ (instancetype)zhnActiveFireWithHotGirlsImageArray:(NSArray <NSString *> *)girlImageArray frame:(CGRect)frame{
-//    return [[self alloc]initWithHotGirlsImageArray:girlImageArray frame:frame];
-//}
 
 - (NSMutableArray *)subViewOldSizeArry{
     
