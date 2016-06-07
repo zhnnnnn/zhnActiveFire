@@ -103,7 +103,7 @@
 
 - (void)cancelDownLoad{
     [self.downLoadTask cancel];
-    [self cancel];
+//    [self cancel];
 }
 
 

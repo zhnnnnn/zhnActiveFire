@@ -44,7 +44,9 @@ static NSMutableDictionary * faildUrls;
 - (void)zhn_setImageWithUrl:(NSString *)url withContentMode:(ZHN_contentMode)mode needDefaultImage:(BOOL)needDefaultImage placeHolder:(UIImage *)placeHolder{
     
     // 取消当前imageview的下载任务
+  
     [self.currentImageOperation cancelDownLoad];
+    
     
     if (placeHolder) {
         dispatch_async(dispatch_get_main_queue(), ^{

@@ -52,13 +52,19 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
     return _subViewOldCenterArray;
 }
 
+
 - (void)layoutSubviews{
-    
     [super layoutSubviews];
+    [self zhn_layoutSubViews];
+}
+
+- (void)zhn_layoutSubViews{
+    
+//    [super layoutSubviews];
     
     [self initGesture];
     
-    if (!objc_getAssociatedObject(self, @"KonceTimeKey")) {
+    if (![objc_getAssociatedObject(self, @"KonceTimeKey")isEqualToString: @"yes"]) {
        
         CGFloat subViewWidth = self.frame.size.width;
         CGFloat subViewHeight = self.frame.size.height;
@@ -131,7 +137,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
             }
             
         }
-        objc_setAssociatedObject(self, @"KonceTimeKey", @"YES", OBJC_ASSOCIATION_COPY_NONATOMIC);
+        objc_setAssociatedObject(self, @"KonceTimeKey", @"yes", OBJC_ASSOCIATION_COPY_NONATOMIC);
     }
 }
 
@@ -218,6 +224,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
         CGFloat xdelta = currentPoint.x - _startPoint.x;
         if (fabs(xdelta/self.frame.size.width)> kLikeDislikePercent) {// 超过边界（喜欢或者不喜欢）
             self.currentIndex += 1;
+            
             [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.2 initialSpringVelocity:0.1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 topView.center = CGPointMake(xdelta * 50, 0);
             } completion:^(BOOL finished) {
@@ -244,7 +251,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
             
         }else{// 没有超过边界
             
-            [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.9 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:5 options:UIViewAnimationOptionCurveEaseIn animations:^{
                 topView.center = _topViewOldCenter;
                 [topView.subviews firstObject].transform = CGAffineTransformIdentity;
                 int maxCount = self.currentCount > (self.currentIndex+3)? 3:(int)(self.currentCount - self.currentIndex -1);
@@ -266,10 +273,20 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
                     
                 }
             } completion:^(BOOL finished) {
-                
             }];
         }  
     }
 }
+
+- (void)reloadData{
+    for (UIView * tempView in self.subviews) {
+        [tempView removeFromSuperview];
+    }
+    objc_setAssociatedObject(self, @"KonceTimeKey", @"no", OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self zhn_layoutSubViews];
+}
+
+
+
 
 @end
