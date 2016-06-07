@@ -7,12 +7,17 @@
 //
 
 #import "zhnAtiveFireView.h"
-#import "zhnShowImageView.h"
 #import "UIImageView+ZHNimageCache.h"
 #import "Masonry.h"
 #import <objc/runtime.h>
+// 最顶上的view
 #define topView [self.subviews lastObject]
-
+// 顶上view上面提示喜欢的view
+#define noticeLikeView topView.subviews.firstObject.subviews[1]
+// 顶上view上面提示不喜欢的view
+#define noticeDisLikeView topView.subviews.firstObject.subviews.lastObject
+// 显示内容的view
+#define showContentView topView.subviews.firstObject.subviews.firstObject
 static const CGFloat KWpadding = 10;
 static const CGFloat KHpadding = 10;
 static const CGFloat KRotashakeRange = 0.0005;
@@ -27,25 +32,28 @@ static const CGFloat KnoticeViewWidthHeight = 50;
 @property (nonatomic,strong) NSMutableArray * subViewOldCenterArray;
 
 @property (nonatomic,strong) UITapGestureRecognizer * tapGes;
+
+@property (nonatomic,assign) NSInteger currentCount;
+@property (nonatomic,assign) NSInteger currentIndex;
 @end
 
 
 
 @implementation zhnAtiveFireView
 
-- (instancetype)initWithHotGirlsImageArray:(NSArray <NSString *> *)girlImageArray frame:(CGRect)frame{
-    
-    if (self = [super initWithFrame:frame]) {
-        self.girlImageArray = girlImageArray;
-        
-        [self initGesture];
-    }
-    return self;
-}
-
-+ (instancetype)zhnActiveFireWithHotGirlsImageArray:(NSArray <NSString *> *)girlImageArray frame:(CGRect)frame{
-    return [[self alloc]initWithHotGirlsImageArray:girlImageArray frame:frame];
-}
+//- (instancetype)initWithHotGirlsImageArray:(NSArray <NSString *> *)girlImageArray frame:(CGRect)frame{
+//    
+//    if (self = [super initWithFrame:frame]) {
+//        self.girlImageArray = girlImageArray;
+//        
+//        
+//    }
+//    return self;
+//}
+//
+//+ (instancetype)zhnActiveFireWithHotGirlsImageArray:(NSArray <NSString *> *)girlImageArray frame:(CGRect)frame{
+//    return [[self alloc]initWithHotGirlsImageArray:girlImageArray frame:frame];
+//}
 
 - (NSMutableArray *)subViewOldSizeArry{
     
@@ -65,12 +73,17 @@ static const CGFloat KnoticeViewWidthHeight = 50;
     
     [super layoutSubviews];
     
+    [self initGesture];
+    
     if (!objc_getAssociatedObject(self, @"KonceTimeKey")) {
        
         CGFloat subViewWidth = self.frame.size.width;
         CGFloat subViewHeight = self.frame.size.height;
+        
+       
         if ([self.dataSource zhnActiveFireViewItemCount] > 3) {
-            
+            self.currentCount = [self.dataSource zhnActiveFireViewItemCount];
+            self.currentIndex = 0;
             for (int index = 0; index < 4; index++) {
                 // 最外面的容器view
                 UIView * tempView = [[UIView alloc]init];
@@ -94,7 +107,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;
                 [backView mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.edges.mas_equalTo(UIEdgeInsetsZero);
                 }];
-                
+                backView.backgroundColor = [UIColor redColor];
                 
                 // 内容
                 UIView * contentView = [self.dataSource zhnActiveFireViewinIndex:index];
@@ -154,6 +167,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;
     [self addGestureRecognizer:panGes];
 }
 
+// 拖动手势的处理
 - (void)panTheView:(UIPanGestureRecognizer *)pan{
     
     if (pan.state == UIGestureRecognizerStateBegan) {
@@ -173,14 +187,38 @@ static const CGFloat KnoticeViewWidthHeight = 50;
         // 最上面的view
         [topView.subviews firstObject].transform = CGAffineTransformMakeRotation(scale);
         topView.center = CGPointMake(_topViewOldCenter.x + xdelta, _topViewOldCenter.y + ydelta);
+        
+        if (self.showPercent > 0.5) {
+            noticeLikeView.hidden= NO;
+            noticeDisLikeView.hidden= YES;
+        }
+        if (self.showPercent < -0.5) {
+            noticeLikeView.hidden= YES;
+            noticeDisLikeView.hidden= NO;
+        }
+        
+        
         // 下面的三个view
         if (transLationY <= KHpadding) {
-            for (int index = 0; index < 3; index ++) {
-                CGPoint oldCenter = [self.subViewOldCenterArray[index]CGPointValue];
-                CGSize subViewSize =  [self.subViewOldSizeArry[index] CGSizeValue];
+            int maxCount = self.currentCount > (self.currentIndex+3)? 3:(int)(self.currentCount - self.currentIndex -1);
+            for (int index = 0; index < maxCount; index ++) {
+                CGPoint oldCenter;
+                CGSize subViewSize;
+                if (maxCount == 3) {
+                    oldCenter = [self.subViewOldCenterArray[index]CGPointValue];
+                    subViewSize =  [self.subViewOldSizeArry[index] CGSizeValue];
+                }else{
+                    oldCenter = [self.subViewOldCenterArray[index + (3-maxCount)]CGPointValue];
+                    subViewSize = [self.subViewOldSizeArry[index + (3-maxCount)]CGSizeValue];
+                }
+                
                 self.subviews[index].bounds = CGRectMake(0, 0, subViewSize.width + (2 * transLationY), subViewSize.height);
-                if (index > 0) {
-                      self.subviews[index].center = CGPointMake(oldCenter.x, oldCenter.y - transLationY);
+                if (maxCount == 3) {
+                    if (index > 0) {
+                        self.subviews[index].center = CGPointMake(oldCenter.x, oldCenter.y - transLationY);
+                    }
+                }else{
+                        self.subviews[index].center = CGPointMake(oldCenter.x, oldCenter.y - transLationY);
                 }
             }
         }
@@ -188,21 +226,37 @@ static const CGFloat KnoticeViewWidthHeight = 50;
     
     if (pan.state == UIGestureRecognizerStateCancelled || pan.state == UIGestureRecognizerStateEnded) {
         
+        // 一些必要的赋值
         self.tapGes.enabled = YES;
+        noticeDisLikeView.hidden = YES;
+        noticeLikeView.hidden = YES;
+        
         CGPoint currentPoint = [pan locationInView:self];
         CGFloat xdelta = currentPoint.x - _startPoint.x;
         if (fabs(xdelta/self.frame.size.width)> kLikeDislikePercent) {// 超过边界（喜欢或者不喜欢）
-            
+            self.currentIndex += 1;
             [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.2 initialSpringVelocity:0.1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 topView.center = CGPointMake(xdelta * 50, 0);
             } completion:^(BOOL finished) {
+                
+                if (self.currentIndex + 4 > self.currentCount) {// 数据少于四组的情况
+                    [topView removeFromSuperview];
+                    return ;
+                }
                 
                 [topView.subviews firstObject].transform = CGAffineTransformIdentity;
                 CGSize topCurrentSize = [self.subViewOldSizeArry[0]CGSizeValue];
                 topView.center = [self.subViewOldCenterArray[0]CGPointValue];
                 topView.bounds = CGRectMake(0, 0, topCurrentSize.width, topCurrentSize.height);
                 
+                [showContentView removeFromSuperview];
+                UIView * contentView = [self.dataSource zhnActiveFireViewinIndex:self.currentIndex + 3];
+                [self.subviews.lastObject.subviews.firstObject insertSubview:contentView atIndex:0];
+                [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.edges.mas_equalTo(UIEdgeInsetsZero);
+                }];
                 [self insertSubview:topView atIndex:0];
+
             }];
             
         }else{// 没有超过边界
@@ -210,14 +264,23 @@ static const CGFloat KnoticeViewWidthHeight = 50;
             [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.9 options:UIViewAnimationOptionCurveEaseIn animations:^{
                 topView.center = _topViewOldCenter;
                 [topView.subviews firstObject].transform = CGAffineTransformIdentity;
-                for (int index = 0; index < 3; index ++) {
+                int maxCount = self.currentCount > (self.currentIndex+3)? 3:(int)(self.currentCount - self.currentIndex -1);
+               
+                for (int index = 0; index < maxCount+1; index ++) {
                     self.subviews[index].transform = CGAffineTransformIdentity;
-                    if (index > 0) {
-                        CGSize subViewSize =  [self.subViewOldSizeArry[index] CGSizeValue];
-                        CGPoint subViewCenter = [self.subViewOldCenterArray[index] CGPointValue];
-                        self.subviews[index].bounds = CGRectMake(0, 0, subViewSize.width, subViewSize.height);
-                        self.subviews[index].center = subViewCenter;
+                    CGPoint oldCenter;
+                    CGSize subViewSize;
+                    if (maxCount == 3) {
+                        oldCenter = [self.subViewOldCenterArray[index]CGPointValue];
+                        subViewSize =  [self.subViewOldSizeArry[index] CGSizeValue];
+                    }else{
+                        oldCenter = [self.subViewOldCenterArray[index + (3-maxCount)]CGPointValue];
+                        subViewSize = [self.subViewOldSizeArry[index + (3-maxCount)]CGSizeValue];
                     }
+                    
+                    self.subviews[index].bounds = CGRectMake(0, 0, subViewSize.width, subViewSize.height);
+                    self.subviews[index].center = oldCenter;
+                    
                 }
             } completion:^(BOOL finished) {
                 

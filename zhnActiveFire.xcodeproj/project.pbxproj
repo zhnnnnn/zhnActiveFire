@@ -16,7 +16,6 @@
 		CD1E53331D05669A00CC42C7 /* zhnActiveFireTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53321D05669A00CC42C7 /* zhnActiveFireTests.m */; };
 		CD1E533E1D05669A00CC42C7 /* zhnActiveFireUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E533D1D05669A00CC42C7 /* zhnActiveFireUITests.m */; };
 		CD1E534D1D05675D00CC42C7 /* zhnAtiveFireView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E534C1D05675D00CC42C7 /* zhnAtiveFireView.m */; };
-		CD1E53501D06919700CC42C7 /* zhnShowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E534F1D06919700CC42C7 /* zhnShowImageView.m */; };
 		CD1E53651D06929000CC42C7 /* UIImageView+ZHNimage.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53541D06929000CC42C7 /* UIImageView+ZHNimage.m */; };
 		CD1E53661D06929000CC42C7 /* UIImageView+ZHNimageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53561D06929000CC42C7 /* UIImageView+ZHNimageCache.m */; };
 		CD1E53671D06929000CC42C7 /* ZHNdiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53581D06929000CC42C7 /* ZHNdiskCache.m */; };
@@ -74,8 +73,6 @@
 		CD1E533F1D05669A00CC42C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD1E534B1D05675D00CC42C7 /* zhnAtiveFireView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhnAtiveFireView.h; sourceTree = "<group>"; };
 		CD1E534C1D05675D00CC42C7 /* zhnAtiveFireView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhnAtiveFireView.m; sourceTree = "<group>"; };
-		CD1E534E1D06919700CC42C7 /* zhnShowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhnShowImageView.h; sourceTree = "<group>"; };
-		CD1E534F1D06919700CC42C7 /* zhnShowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhnShowImageView.m; sourceTree = "<group>"; };
 		CD1E53531D06929000CC42C7 /* UIImageView+ZHNimage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ZHNimage.h"; sourceTree = "<group>"; };
 		CD1E53541D06929000CC42C7 /* UIImageView+ZHNimage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ZHNimage.m"; sourceTree = "<group>"; };
 		CD1E53551D06929000CC42C7 /* UIImageView+ZHNimageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ZHNimageCache.h"; sourceTree = "<group>"; };
@@ -173,8 +170,6 @@
 				CD1E531C1D05669A00CC42C7 /* AppDelegate.m */,
 				CD1E531E1D05669A00CC42C7 /* ViewController.h */,
 				CD1E531F1D05669A00CC42C7 /* ViewController.m */,
-				CD1E534E1D06919700CC42C7 /* zhnShowImageView.h */,
-				CD1E534F1D06919700CC42C7 /* zhnShowImageView.m */,
 				CD1E534B1D05675D00CC42C7 /* zhnAtiveFireView.h */,
 				CD1E534C1D05675D00CC42C7 /* zhnAtiveFireView.m */,
 				CD1E53211D05669A00CC42C7 /* Main.storyboard */,
@@ -421,7 +416,6 @@
 				CD1E53921D06997100CC42C7 /* View+MASAdditions.m in Sources */,
 				CD1E53691D06929000CC42C7 /* ZHNmemoryCache.m in Sources */,
 				CD1E538E1D06997100CC42C7 /* MASViewAttribute.m in Sources */,
-				CD1E53501D06919700CC42C7 /* zhnShowImageView.m in Sources */,
 				CD1E53911D06997100CC42C7 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				CD1E536D1D06929000CC42C7 /* ZHNwebImageOperation.m in Sources */,
 				CD1E531D1D05669A00CC42C7 /* AppDelegate.m in Sources */,

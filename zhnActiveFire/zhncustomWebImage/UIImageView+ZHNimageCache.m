@@ -80,7 +80,6 @@ static NSMutableDictionary * faildUrls;
    ZHNwebImageOperation * imageOperation = [[ZHNimageDownLoader shareInstace] startDownLoadImageWithUrl:url fullKey:fullKey imageviewObject:self progress:nil finished:^(NSData *data, NSError *error) {
        
        if (error || data == nil) {
-           NSLog(@"%@",error);
            return;
        }
        

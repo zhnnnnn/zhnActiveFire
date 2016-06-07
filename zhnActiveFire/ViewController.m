@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "zhnAtiveFireView.h"
-#import "zhnShowImageView.h"
 #import "Masonry.h"
 #import "UIImageView+ZHNimageCache.h"
 @interface ViewController ()<zhnActiveFireViewDataSource>
@@ -20,14 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    zhnAtiveFireView * fireView = [zhnAtiveFireView zhnActiveFireWithHotGirlsImageArray:@[@"ddada",@"dadada",@"dada",@"dada",@"daaqq"] frame:CGRectMake(100, 100, 300, 400)];
+    zhnAtiveFireView * fireView = [[zhnAtiveFireView alloc]init];
     [self.view addSubview:fireView];
+    [fireView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(50, 20, 200, 20));
+    }];
     fireView.dataSource = self;
 }
 
 - (NSInteger)zhnActiveFireViewItemCount{
     
-    return 10;
+    return 4;
 }
 
 - (UIView *)zhnActiveFireViewinIndex:(NSInteger)index{
@@ -35,12 +37,13 @@
     UIView * tempView = [[UIView alloc]init];
     tempView.backgroundColor = [UIColor greenColor];
     
-    zhnShowImageView * backImage = [[zhnShowImageView alloc]init];
+    UIImageView * backImage = [[UIImageView alloc]init];
     [tempView addSubview:backImage];
     [backImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 50, 0));
     }];
-    [backImage zhn_setImageWithUrl:@"aa" withContentMode:ZHN_contentModeCenter placeHolder:[UIImage imageNamed:@"tutu"]];
+    backImage.contentMode = UIViewContentModeScaleToFill;
+    [backImage zhn_setImageWithUrl:@"http://1.hoopchina.com.cn/attachment/Day_091231/176_2698549_edf68aafc659ca6.jpg" withContentMode:ZHN_contentModeCenter placeHolder:[UIImage imageNamed:@"tutu"]];
     
     return tempView;
 }
