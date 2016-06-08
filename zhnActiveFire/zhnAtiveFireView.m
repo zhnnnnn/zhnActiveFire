@@ -111,7 +111,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
                 }
                 
                 // 内容
-                UIView * contentView = [self.dataSource zhnActiveFireViewinIndex:index];
+                UIView * contentView = [self.dataSource zhnActiveFireViewinIndex:3-index];
                 [backView addSubview:contentView];
                 [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.edges.mas_equalTo(UIEdgeInsetsZero);

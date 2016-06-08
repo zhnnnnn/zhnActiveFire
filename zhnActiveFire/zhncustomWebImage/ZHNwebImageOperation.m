@@ -49,6 +49,8 @@
 
 - (void)start {
     
+    [self.downLoadTask resume];
+    
     if ([self isCancelled])
     {
         [self willChangeValueForKey:@"isFinished"];
@@ -56,8 +58,6 @@
         [self didChangeValueForKey:@"isFinished"];
         return;
     }
-    
-    [self.downLoadTask resume];
     
     [self willChangeValueForKey:@"isExecuting"];
     [NSThread detachNewThreadSelector:@selector(main) toTarget:self withObject:nil];
@@ -103,9 +103,8 @@
 
 - (void)cancelDownLoad{
     [self.downLoadTask cancel];
-    [self start];
+  
     [super cancel];
-    
 }
 
 

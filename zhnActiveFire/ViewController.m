@@ -10,8 +10,10 @@
 #import "zhnAtiveFireView.h"
 #import "Masonry.h"
 #import "UIImageView+ZHNimageCache.h"
+#import "UIImageView+WebCache.h"
 @interface ViewController ()<zhnActiveFireViewDataSource>
 @property (nonatomic,weak) zhnAtiveFireView * fireView;
+@property (nonatomic,strong) NSArray * imageArray;
 @end
 
 @implementation ViewController
@@ -29,36 +31,43 @@
     
     UIButton * reloadButton = [[UIButton alloc]init];
     [self.view addSubview:reloadButton];
-    reloadButton.backgroundColor = [UIColor blackColor];
+    reloadButton.layer.cornerRadius = 20;
+    [reloadButton setTitle:@"刷新数据" forState:UIControlStateNormal];
+    reloadButton.backgroundColor = [UIColor lightGrayColor];
     [reloadButton addTarget:self action:@selector(clickReload) forControlEvents:UIControlEventTouchUpInside];
     [reloadButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-40);
         make.left.equalTo(self.view.mas_left).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
+    
+    self.imageArray = @[@"http://a1.hoopchina.com.cn/attachment/Day_091231/176_2698549_edf68aafc659ca6.jpg",@"http://wenwen.soso.com/p/20090316/20090316192531-1838945174.jpg",@"http://img4.imgtn.bdimg.com/it/u=1196012006,634290422&fm=21&gp=0.jpg",@"http://img1.gtimg.com/2/275/27542/2754231_500x500_0.jpg",@"http://images.takungpao.com/2013/0206/20130206015558575.jpg",@"http://photocdn.sohu.com/20140402/Img397660571.jpg",@"http://ent.chinadaily.com.cn/img/attachement/jpg/site1/20150710/0023ae987ec61709d95044.jpg",@"http://s6.sinaimg.cn/mw690/001wjct9gy6Q1kOLbq5e5",@"http://img.pconline.com.cn/images/upload/upc/tx/ladyproduct/1505/14/c0/6772265_1431586682296_medium.jpg",@"http://i0.sinaimg.cn/ent/s/u/hlw/2014-11-04/U11178P28T3D4234912F326DT20141104075140.jpg"];
 }
 
 - (void)clickReload{
+    self.imageArray = @[@"http://photocdn.sohu.com/20121112/Img357363674.jpg",@"http://image.s1979.com/allimg/130829/468_130829174629_1.jpg",@"http://www.sinaimg.cn/dy/slidenews/4_img/2013_04/704_868057_265532.jpg",@"http://cdn2.bjweekly.com/news/image2/440/12072115689429546424.jpg",@"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNyLs1uX7WCOPKKvv5FQnkrHBQ8u2z78-j_VskY1t7KuAwxxg7",@"http://photocdn.sohu.com/20110319/Img304583698.jpg",@"http://res.ent.ifeng.com/attachments/2010/04/23/c7f67b64a4ff2d5e034870eae814b531.jpg",@"http://ugc.qpic.cn/baikepic/28350/cut-20131216145454-450569768.jpg/0",@"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTxGGInP6_KR9fhH9R4XZDS2zZbHO0T1Pkc7TRs0zTv8vi5QpV8",@"http://n.sinaimg.cn/transform/20150331/zROj-avxeafs3542797.png"];
     [self.fireView reloadData];
 }
 
 - (NSInteger)zhnActiveFireViewItemCount{
     
-    return 10;
+    return self.imageArray.count;
 }
 
 - (UIView *)zhnActiveFireViewinIndex:(NSInteger)index{
 
     UIView * tempView = [[UIView alloc]init];
-    tempView.backgroundColor = [UIColor greenColor];
+    tempView.backgroundColor = [UIColor lightGrayColor];
     
     UIImageView * backImage = [[UIImageView alloc]init];
     [tempView addSubview:backImage];
     [backImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 50, 0));
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 100, 0));
     }];
-    backImage.contentMode = UIViewContentModeScaleToFill;
-    [backImage zhn_setImageWithUrl:@"http://h1.hoopchina.com.cn/attachment/Day_091231/176_2698549_edf68aafc659ca6.jpg" withContentMode:ZHN_contentModeCenter placeHolder:[UIImage imageNamed:@"tutu"]];
+    backImage.contentMode = UIViewContentModeScaleAspectFill;
+    backImage.clipsToBounds = YES;
+//    [backImage sd_setImageWithURL:[NSURL URLWithString:self.imageArray[index]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    [backImage zhn_setImageWithUrl:self.imageArray[index] withContentMode:ZHN_contentModeTop placeHolder:[UIImage imageNamed:@"placeholder"]];
     
     return tempView;
 }
