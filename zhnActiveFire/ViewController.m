@@ -40,12 +40,11 @@
 
 - (void)clickReload{
     [self.fireView reloadData];
-    
 }
 
 - (NSInteger)zhnActiveFireViewItemCount{
     
-    return 5;
+    return 10;
 }
 
 - (UIView *)zhnActiveFireViewinIndex:(NSInteger)index{

@@ -18,6 +18,8 @@
 #define noticeDisLikeView topView.subviews.firstObject.subviews.lastObject
 // 显示内容的view
 #define showContentView topView.subviews.firstObject.subviews.firstObject
+
+static const NSString * KnoticeKey =  @"KonticeTimeKey";// key
 static const CGFloat KWpadding = 10;// x轴上的padding
 static const CGFloat KHpadding = 5;// y轴上的padding
 static const CGFloat KRotashakeRange = 0.0005;// 拖动转动的幅度
@@ -60,26 +62,32 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
 
 - (void)zhn_layoutSubViews{
     
-//    [super layoutSubviews];
     
     [self initGesture];
     
-    if (![objc_getAssociatedObject(self, @"KonceTimeKey")isEqualToString: @"yes"]) {
+    if (![objc_getAssociatedObject(self, (__bridge const void *)(KnoticeKey))isEqualToString: @"yes"]) {
        
-        CGFloat subViewWidth = self.frame.size.width;
+        CGFloat subViewWidth  = self.frame.size.width;
         CGFloat subViewHeight = self.frame.size.height;
+
+        self.currentCount     = [self.dataSource zhnActiveFireViewItemCount];
+        self.currentIndex     = 0;
+        // 这个步骤是处理数据 < 4 的特殊情况
+        NSInteger delta       = 4 - self.currentCount;
+        if (self.currentCount < 4) {
+        self.currentCount     = 4;
+        }
         
-       
-        if ([self.dataSource zhnActiveFireViewItemCount] > 3) {
-            self.currentCount = [self.dataSource zhnActiveFireViewItemCount];
-            self.currentIndex = 0;
+        if (self.currentCount > 3) {
+            
             for (int index = 0; index < 4; index++) {
+                
                 // 最外面的容器view
-                UIView * tempView = [[UIView alloc]init];
-                CGFloat tempViewX = (3-index) * KWpadding;
-                CGFloat tempViewY = (3-index) * KHpadding;
+                UIView * tempView      = [[UIView alloc]init];
+                CGFloat tempViewX      = (3-index) * KWpadding;
+                CGFloat tempViewY      = (3-index) * KHpadding;
                 CGFloat tempViewHeight = subViewHeight - 2 * KHpadding;
-                CGFloat tempViewWidth = subViewWidth - (3-index)*2 * KWpadding;
+                CGFloat tempViewWidth  = subViewWidth - (3-index) * 2 * KWpadding;
             
                 if (index == 0) {
                     tempViewY = tempViewY - KHpadding;
@@ -97,6 +105,10 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
                     make.edges.mas_equalTo(UIEdgeInsetsZero);
                 }];
                 backView.backgroundColor = [UIColor redColor];
+                // 处理数据 < 4 的情况
+                if (delta > 0 && index < delta) {
+                    backView.hidden = YES;
+                }
                 
                 // 内容
                 UIView * contentView = [self.dataSource zhnActiveFireViewinIndex:index];
@@ -137,7 +149,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
             }
             
         }
-        objc_setAssociatedObject(self, @"KonceTimeKey", @"yes", OBJC_ASSOCIATION_COPY_NONATOMIC);
+        objc_setAssociatedObject(self, (__bridge const void *)(KnoticeKey), @"yes", OBJC_ASSOCIATION_COPY_NONATOMIC);
     }
 }
 
@@ -160,8 +172,8 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
 - (void)panTheView:(UIPanGestureRecognizer *)pan{
     
     if (pan.state == UIGestureRecognizerStateBegan) {
-        _topViewOldCenter = topView.center;
-        _startPoint = [pan locationInView:self];
+        _topViewOldCenter   = topView.center;
+        _startPoint         = [pan locationInView:self];
         self.tapGes.enabled = NO;
     }
     if (pan.state == UIGestureRecognizerStateChanged) {
@@ -170,7 +182,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
         CGFloat xdelta = currentPoint.x - _startPoint.x;
         CGFloat ydelta = currentPoint.y - _startPoint.y;
         self.showPercent = xdelta/(self.frame.size.width * kLikeDislikePercent);
-        CGFloat scale= xdelta * KRotashakeRange * M_PI;
+        CGFloat scale = xdelta * KRotashakeRange * M_PI;
         CGFloat maxDelta = fabs(xdelta) > fabs(ydelta) ? fabs(xdelta):fabs(ydelta);
         CGFloat transLationY = maxDelta/(self.frame.size.width * kLikeDislikePercent)* KHpadding;
         // 最上面的view
@@ -178,12 +190,12 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
         topView.center = CGPointMake(_topViewOldCenter.x + xdelta, _topViewOldCenter.y + ydelta);
         
         if (self.showPercent > 0.5) {
-            noticeLikeView.hidden= NO;
-            noticeDisLikeView.hidden= YES;
+            noticeLikeView.hidden    = NO;
+            noticeDisLikeView.hidden = YES;
         }
         if (self.showPercent < -0.5) {
-            noticeLikeView.hidden= YES;
-            noticeDisLikeView.hidden= NO;
+            noticeLikeView.hidden    = YES;
+            noticeDisLikeView.hidden = NO;
         }
         
         
@@ -194,10 +206,10 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
                 CGPoint oldCenter;
                 CGSize subViewSize;
                 if (maxCount == 3) {
-                    oldCenter = [self.subViewOldCenterArray[index]CGPointValue];
-                    subViewSize =  [self.subViewOldSizeArry[index] CGSizeValue];
+                    oldCenter   = [self.subViewOldCenterArray[index]CGPointValue];
+                    subViewSize = [self.subViewOldSizeArry[index] CGSizeValue];
                 }else{
-                    oldCenter = [self.subViewOldCenterArray[index + (3-maxCount)]CGPointValue];
+                    oldCenter   = [self.subViewOldCenterArray[index + (3-maxCount)]CGPointValue];
                     subViewSize = [self.subViewOldSizeArry[index + (3-maxCount)]CGSizeValue];
                 }
                 
@@ -236,8 +248,8 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
                 
                 [topView.subviews firstObject].transform = CGAffineTransformIdentity;
                 CGSize topCurrentSize = [self.subViewOldSizeArry[0]CGSizeValue];
-                topView.center = [self.subViewOldCenterArray[0]CGPointValue];
-                topView.bounds = CGRectMake(0, 0, topCurrentSize.width, topCurrentSize.height);
+                topView.center        = [self.subViewOldCenterArray[0]CGPointValue];
+                topView.bounds        = CGRectMake(0, 0, topCurrentSize.width, topCurrentSize.height);
                 
                 [showContentView removeFromSuperview];
                 UIView * contentView = [self.dataSource zhnActiveFireViewinIndex:self.currentIndex + 3];
@@ -259,12 +271,12 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
                 for (int index = 0; index < maxCount+1; index ++) {
                     self.subviews[index].transform = CGAffineTransformIdentity;
                     CGPoint oldCenter;
-                    CGSize subViewSize;
+                    CGSize  subViewSize;
                     if (maxCount == 3) {
-                        oldCenter = [self.subViewOldCenterArray[index]CGPointValue];
-                        subViewSize =  [self.subViewOldSizeArry[index] CGSizeValue];
+                        oldCenter   = [self.subViewOldCenterArray[index]CGPointValue];
+                        subViewSize = [self.subViewOldSizeArry[index] CGSizeValue];
                     }else{
-                        oldCenter = [self.subViewOldCenterArray[index + (3-maxCount)]CGPointValue];
+                        oldCenter   = [self.subViewOldCenterArray[index + (3-maxCount)]CGPointValue];
                         subViewSize = [self.subViewOldSizeArry[index + (3-maxCount)]CGSizeValue];
                     }
                     
@@ -282,7 +294,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
     for (UIView * tempView in self.subviews) {
         [tempView removeFromSuperview];
     }
-    objc_setAssociatedObject(self, @"KonceTimeKey", @"no", OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, (__bridge const void *)(KnoticeKey), @"no", OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self zhn_layoutSubViews];
 }
 

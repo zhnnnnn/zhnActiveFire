@@ -103,14 +103,14 @@
 
 - (void)cancelDownLoad{
     [self.downLoadTask cancel];
-//    [self cancel];
+    [self start];
+    [super cancel];
+    
 }
 
 
 // 下载完成
-- (void)URLSession:(NSURLSession *)session
-      downloadTask:(NSURLSessionDownloadTask *)downloadTask
-didFinishDownloadingToURL:(NSURL *)location {
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
     NSData *data = [NSData dataWithContentsOfURL:location];
     if (self.progressBlock) {
         self.progressBlock(self.totalLength, self.currentLength);
@@ -136,7 +136,6 @@ didFinishDownloadingToURL:(NSURL *)location {
 }
 
 // 下载失败
-
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
     if ([error code] != NSURLErrorCancelled) {
         if (self.callbackOnFinished) {
