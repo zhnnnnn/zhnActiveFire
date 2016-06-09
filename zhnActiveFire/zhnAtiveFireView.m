@@ -380,7 +380,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
             leftOrRight = - 1;
             // 不喜欢的view
             UIImageView * dontLikeView = [[UIImageView alloc]init];
-            dontLikeView.backgroundColor = [UIColor redColor];
+            dontLikeView.backgroundColor = [UIColor yellowColor];
             [tempview addSubview:dontLikeView];
             // 这里为啥布局写的有这么坑爹？（我也不知道，按简单的布局，又有莫名其妙的bug）
             [dontLikeView mas_makeConstraints:^(MASConstraintMaker *make) {
