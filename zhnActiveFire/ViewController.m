@@ -39,6 +39,7 @@
     
     // dislikebutton
     UIButton * dislikeButton = [[UIButton alloc]init];
+    [dislikeButton setTitle:@"不喜欢" forState:UIControlStateNormal];
     dislikeButton.layer.cornerRadius = 50;
     [self.view addSubview:dislikeButton];
     dislikeButton.backgroundColor = [UIColor greenColor];
@@ -51,6 +52,7 @@
     
     // likebutton
     UIButton * likeButton = [[UIButton alloc]init];
+    [likeButton setTitle:@"喜欢" forState:UIControlStateNormal];
     likeButton.layer.cornerRadius = 50;
     [self.view addSubview:likeButton];
     likeButton.backgroundColor = [UIColor redColor];
