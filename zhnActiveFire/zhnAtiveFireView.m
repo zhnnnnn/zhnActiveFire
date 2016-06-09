@@ -276,7 +276,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
                     
                 }
             } completion:^(BOOL finished) {
-                
+                self.topViewFrame = topView.frame;
             }];
         }  
     }
