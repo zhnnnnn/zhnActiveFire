@@ -47,7 +47,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestReturnCacheDataElseLoad
                                                        timeoutInterval:60];
-    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+//    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
     ZHNwebImageOperation * imageOperation = [[ZHNwebImageOperation alloc]initWithRequest:request fullKey:fullkey progress:progress completion:finished];
     if (imageOperation.isCancelled) {
         return nil;

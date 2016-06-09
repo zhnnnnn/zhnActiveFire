@@ -125,6 +125,7 @@
     backImage.contentMode = UIViewContentModeScaleAspectFill;
     backImage.clipsToBounds = YES;
 //    [backImage sd_setImageWithURL:[NSURL URLWithString:self.imageArray[index]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    
     [backImage zhn_setImageWithUrl:self.imageArray[index] withContentMode:ZHN_contentModeTop placeHolder:[UIImage imageNamed:@"placeholder"]];
     
     return tempView;

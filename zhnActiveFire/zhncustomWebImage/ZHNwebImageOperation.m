@@ -29,19 +29,21 @@
 @implementation ZHNwebImageOperation
 
 - (instancetype)initWithRequest:(NSURLRequest *)request fullKey:(NSString *)fullkey progress:(ZHNimageDownLoadProgressBlock)progress completion:(ZHNimageDownLoadCallBackBlock)completion{
-
+    
     if (self = [super init]) {
-        
+    
+        // 这里面用self. 赋值貌似会有内存泄漏的问题
         NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        self.connection = [NSURLSession sessionWithConfiguration:defaultConfiguration delegate:self delegateQueue:[[ZHNimageDownLoader shareInstace] delegateQueue]];
-        self.downLoadTask = [self.connection downloadTaskWithRequest:request];
+        _connection = [NSURLSession sessionWithConfiguration:defaultConfiguration delegate:self delegateQueue:[[ZHNimageDownLoader shareInstace] delegateQueue]];
+        _downLoadTask = [self.connection downloadTaskWithRequest:request];
         
-        self.data = [NSMutableData data];
-        self.progressBlock = progress;
-        self.callbackOnFinished = completion;
+        _data = [NSMutableData data];
+        _progressBlock = progress;
+        _callbackOnFinished = completion;
         executing = NO;
         finished = NO;
         
+        defaultConfiguration = nil;
        
     }
     return self;
