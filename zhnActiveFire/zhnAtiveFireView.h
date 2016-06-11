@@ -39,8 +39,17 @@
  *  点击的最上面的view
  */
 - (void)zhnActiveFireViewChoseShowMore;
-
+/**
+ *  滑动喜欢了第几组数据
+ *
+ *  @param index 第几组数据
+ */
 - (void)zhnActiveFireViewSwipeLikeIndex:(NSInteger)index;
+/**
+ *  滑动不喜欢了第几组数据
+ *
+ *  @param index 第几组数据
+ */
 - (void)zhnActiveFireViewSwipeDisLikeIndex:(NSInteger)index;
 
 @end
