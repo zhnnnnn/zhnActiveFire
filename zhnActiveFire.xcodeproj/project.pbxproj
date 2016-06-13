@@ -51,6 +51,7 @@
 		CD1E53FF1D07F2D200CC42C7 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53ED1D07F2D200CC42C7 /* UIImageView+HighlightedWebCache.m */; };
 		CD1E54001D07F2D200CC42C7 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53EF1D07F2D200CC42C7 /* UIImageView+WebCache.m */; };
 		CD1E54011D07F2D200CC42C7 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53F11D07F2D200CC42C7 /* UIView+WebCacheOperation.m */; };
+		CDEE31D91D0E5EB800F87346 /* mainContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEE31D81D0E5EB800F87346 /* mainContainerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,8 @@
 		CD1E53EF1D07F2D200CC42C7 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		CD1E53F01D07F2D200CC42C7 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		CD1E53F11D07F2D200CC42C7 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		CDEE31D71D0E5EB800F87346 /* mainContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainContainerViewController.h; sourceTree = "<group>"; };
+		CDEE31D81D0E5EB800F87346 /* mainContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainContainerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +220,8 @@
 			children = (
 				CD1E531B1D05669A00CC42C7 /* AppDelegate.h */,
 				CD1E531C1D05669A00CC42C7 /* AppDelegate.m */,
+				CDEE31D71D0E5EB800F87346 /* mainContainerViewController.h */,
+				CDEE31D81D0E5EB800F87346 /* mainContainerViewController.m */,
 				CD1E531E1D05669A00CC42C7 /* ViewController.h */,
 				CD1E531F1D05669A00CC42C7 /* ViewController.m */,
 				CD1E534B1D05675D00CC42C7 /* zhnAtiveFireView.h */,
@@ -525,6 +530,7 @@
 				CD1E53F21D07F2D200CC42C7 /* MKAnnotationView+WebCache.m in Sources */,
 				CD1E531A1D05669A00CC42C7 /* main.m in Sources */,
 				CD1E53F71D07F2D200CC42C7 /* SDWebImageDownloader.m in Sources */,
+				CDEE31D91D0E5EB800F87346 /* mainContainerViewController.m in Sources */,
 				CD1E53FB1D07F2D200CC42C7 /* UIButton+WebCache.m in Sources */,
 				CD1E538F1D06997100CC42C7 /* MASViewConstraint.m in Sources */,
 				CD1E53F31D07F2D200CC42C7 /* NSData+ImageContentType.m in Sources */,

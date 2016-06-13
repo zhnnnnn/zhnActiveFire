@@ -135,8 +135,10 @@
 
 
 #pragma mark - delegate
-- (void)zhnActiveFireViewChoseShowMore{
-    
+- (void)zhnActiveFireViewChoseShowMoreWithIndex:(NSInteger)showIndex{
+    UIViewController * tempVC = [[UIViewController alloc]init];
+    [self.navigationController pushViewController:tempVC animated:YES];
+   
 }
 
 - (void)zhnActiveFireViewSwipeLikeIndex:(NSInteger)index{

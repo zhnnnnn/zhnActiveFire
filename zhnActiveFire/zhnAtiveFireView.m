@@ -25,7 +25,7 @@ static const CGFloat KWpadding = 10;// x轴上的padding
 static const CGFloat KHpadding = 5;// y轴上的padding
 static const CGFloat KRotashakeRange = 0.0005;// 拖动转动的幅度
 static const CGFloat kLikeDislikePercent = 0.5;// 在百分之多少的情况是选择成功
-static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的view的 宽高
+static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢和不喜欢提示的view的 宽高
 @interface zhnAtiveFireView()
 @property (nonatomic,assign) CGPoint startPoint;
 @property (nonatomic,assign) NSInteger currentCount;// 有多少个数据
@@ -168,8 +168,8 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢喝不喜欢提示的v
 
 - (void)choseShowMore:(UITapGestureRecognizer *)tap{
     
-    if ([self.delegate respondsToSelector:@selector(zhnActiveFireViewChoseShowMore)]) {
-        [self.delegate zhnActiveFireViewChoseShowMore];
+    if ([self.delegate respondsToSelector:@selector(zhnActiveFireViewChoseShowMoreWithIndex:)]) {
+        [self.delegate zhnActiveFireViewChoseShowMoreWithIndex:self.currentIndex];
     }
 }
 

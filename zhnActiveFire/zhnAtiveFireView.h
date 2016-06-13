@@ -38,7 +38,7 @@
 /**
  *  点击的最上面的view
  */
-- (void)zhnActiveFireViewChoseShowMore;
+- (void)zhnActiveFireViewChoseShowMoreWithIndex:(NSInteger)showIndex;
 /**
  *  滑动喜欢了第几组数据
  *
