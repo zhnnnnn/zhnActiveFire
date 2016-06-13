@@ -52,6 +52,10 @@
 		CD1E54001D07F2D200CC42C7 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53EF1D07F2D200CC42C7 /* UIImageView+WebCache.m */; };
 		CD1E54011D07F2D200CC42C7 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1E53F11D07F2D200CC42C7 /* UIView+WebCacheOperation.m */; };
 		CDEE31D91D0E5EB800F87346 /* mainContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEE31D81D0E5EB800F87346 /* mainContainerViewController.m */; };
+		CDEE31E21D0E799A00F87346 /* custonTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEE31E11D0E799A00F87346 /* custonTransition.m */; };
+		CDEE31E51D0E79E300F87346 /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEE31E41D0E79E300F87346 /* detailViewController.m */; };
+		CDEE31E81D0E876100F87346 /* zhnActiveShowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEE31E71D0E876100F87346 /* zhnActiveShowImageView.m */; };
+		CDEE31EB1D0E8F3700F87346 /* customPopTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEE31EA1D0E8F3700F87346 /* customPopTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +172,14 @@
 		CD1E53F11D07F2D200CC42C7 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		CDEE31D71D0E5EB800F87346 /* mainContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainContainerViewController.h; sourceTree = "<group>"; };
 		CDEE31D81D0E5EB800F87346 /* mainContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainContainerViewController.m; sourceTree = "<group>"; };
+		CDEE31E01D0E799A00F87346 /* custonTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = custonTransition.h; sourceTree = "<group>"; };
+		CDEE31E11D0E799A00F87346 /* custonTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = custonTransition.m; sourceTree = "<group>"; };
+		CDEE31E31D0E79E300F87346 /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
+		CDEE31E41D0E79E300F87346 /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
+		CDEE31E61D0E876100F87346 /* zhnActiveShowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhnActiveShowImageView.h; sourceTree = "<group>"; };
+		CDEE31E71D0E876100F87346 /* zhnActiveShowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhnActiveShowImageView.m; sourceTree = "<group>"; };
+		CDEE31E91D0E8F3700F87346 /* customPopTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customPopTransition.h; sourceTree = "<group>"; };
+		CDEE31EA1D0E8F3700F87346 /* customPopTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customPopTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,12 +232,11 @@
 			children = (
 				CD1E531B1D05669A00CC42C7 /* AppDelegate.h */,
 				CD1E531C1D05669A00CC42C7 /* AppDelegate.m */,
-				CDEE31D71D0E5EB800F87346 /* mainContainerViewController.h */,
-				CDEE31D81D0E5EB800F87346 /* mainContainerViewController.m */,
-				CD1E531E1D05669A00CC42C7 /* ViewController.h */,
-				CD1E531F1D05669A00CC42C7 /* ViewController.m */,
-				CD1E534B1D05675D00CC42C7 /* zhnAtiveFireView.h */,
-				CD1E534C1D05675D00CC42C7 /* zhnAtiveFireView.m */,
+				CDEE31EE1D0E9A4F00F87346 /* zhnActiveFireView */,
+				CDEE31ED1D0E9A2E00F87346 /* 自定义转场 */,
+				CDEE31EC1D0E99CE00F87346 /* controller */,
+				CDEE31E61D0E876100F87346 /* zhnActiveShowImageView.h */,
+				CDEE31E71D0E876100F87346 /* zhnActiveShowImageView.m */,
 				CD1E53211D05669A00CC42C7 /* Main.storyboard */,
 				CD1E53241D05669A00CC42C7 /* Assets.xcassets */,
 				CD1E53261D05669A00CC42C7 /* LaunchScreen.storyboard */,
@@ -369,6 +380,39 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		CDEE31EC1D0E99CE00F87346 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE31E31D0E79E300F87346 /* detailViewController.h */,
+				CDEE31E41D0E79E300F87346 /* detailViewController.m */,
+				CDEE31D71D0E5EB800F87346 /* mainContainerViewController.h */,
+				CDEE31D81D0E5EB800F87346 /* mainContainerViewController.m */,
+				CD1E531E1D05669A00CC42C7 /* ViewController.h */,
+				CD1E531F1D05669A00CC42C7 /* ViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		CDEE31ED1D0E9A2E00F87346 /* 自定义转场 */ = {
+			isa = PBXGroup;
+			children = (
+				CDEE31E01D0E799A00F87346 /* custonTransition.h */,
+				CDEE31E11D0E799A00F87346 /* custonTransition.m */,
+				CDEE31E91D0E8F3700F87346 /* customPopTransition.h */,
+				CDEE31EA1D0E8F3700F87346 /* customPopTransition.m */,
+			);
+			name = "自定义转场";
+			sourceTree = "<group>";
+		};
+		CDEE31EE1D0E9A4F00F87346 /* zhnActiveFireView */ = {
+			isa = PBXGroup;
+			children = (
+				CD1E534B1D05675D00CC42C7 /* zhnAtiveFireView.h */,
+				CD1E534C1D05675D00CC42C7 /* zhnAtiveFireView.m */,
+			);
+			name = zhnActiveFireView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -508,6 +552,7 @@
 				CD1E53681D06929000CC42C7 /* ZHNimageDownLoader.m in Sources */,
 				CD1E53F51D07F2D200CC42C7 /* SDWebImageCompat.m in Sources */,
 				CD1E53F81D07F2D200CC42C7 /* SDWebImageDownloaderOperation.m in Sources */,
+				CDEE31EB1D0E8F3700F87346 /* customPopTransition.m in Sources */,
 				CD1E536A1D06929000CC42C7 /* ZHNunlimitedCarouselView.m in Sources */,
 				CD1E53201D05669A00CC42C7 /* ViewController.m in Sources */,
 				CD1E54001D07F2D200CC42C7 /* UIImageView+WebCache.m in Sources */,
@@ -516,12 +561,15 @@
 				CD1E538C1D06997100CC42C7 /* MASConstraintMaker.m in Sources */,
 				CD1E53FF1D07F2D200CC42C7 /* UIImageView+HighlightedWebCache.m in Sources */,
 				CD1E53921D06997100CC42C7 /* View+MASAdditions.m in Sources */,
+				CDEE31E51D0E79E300F87346 /* detailViewController.m in Sources */,
 				CD1E53691D06929000CC42C7 /* ZHNmemoryCache.m in Sources */,
 				CD1E538E1D06997100CC42C7 /* MASViewAttribute.m in Sources */,
 				CD1E53FC1D07F2D200CC42C7 /* UIImage+GIF.m in Sources */,
 				CD1E53FD1D07F2D200CC42C7 /* UIImage+MultiFormat.m in Sources */,
 				CD1E53911D06997100CC42C7 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				CD1E53FE1D07F2D200CC42C7 /* UIImage+WebP.m in Sources */,
+				CDEE31E21D0E799A00F87346 /* custonTransition.m in Sources */,
+				CDEE31E81D0E876100F87346 /* zhnActiveShowImageView.m in Sources */,
 				CD1E53FA1D07F2D200CC42C7 /* SDWebImagePrefetcher.m in Sources */,
 				CD1E536D1D06929000CC42C7 /* ZHNwebImageOperation.m in Sources */,
 				CD1E531D1D05669A00CC42C7 /* AppDelegate.m in Sources */,

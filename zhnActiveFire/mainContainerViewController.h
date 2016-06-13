@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class zhnAtiveFireView;
 @interface mainContainerViewController : UIViewController
+
 @property (nonatomic,weak) UIView * fakeNaviBar;
+@property (nonatomic,strong) zhnAtiveFireView * fireView;
 
 @end

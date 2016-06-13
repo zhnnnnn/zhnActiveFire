@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@class zhnAtiveFireView;
+
+@protocol ViewControllerDelegate <NSObject>
+@optional
+- (void)viewControllerPushVc:(zhnAtiveFireView *)fireView;
+
+@end
+
+
 
 @interface ViewController : UIViewController
 
+@property (nonatomic,weak) id<ViewControllerDelegate> delegate;
 
 @end
 

@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "UIImageView+ZHNimageCache.h"
 #import "UIImageView+WebCache.h"
+#import "zhnActiveShowImageView.h"
 @interface ViewController ()<zhnActiveFireViewDataSource,zhnActiveFireViewDelegate>
 @property (nonatomic,weak) zhnAtiveFireView * fireView;
 @property (nonatomic,strong) NSArray * imageArray;
@@ -119,7 +120,7 @@
     UIView * tempView = [[UIView alloc]init];
     tempView.backgroundColor = [UIColor lightGrayColor];
     
-    UIImageView * backImage = [[UIImageView alloc]init];
+    zhnActiveShowImageView * backImage = [[zhnActiveShowImageView alloc]init];
     [tempView addSubview:backImage];
     [backImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 100, 0));
@@ -136,9 +137,9 @@
 
 #pragma mark - delegate
 - (void)zhnActiveFireViewChoseShowMoreWithIndex:(NSInteger)showIndex{
-    UIViewController * tempVC = [[UIViewController alloc]init];
-    [self.navigationController pushViewController:tempVC animated:YES];
-   
+    if ([self.delegate respondsToSelector:@selector(viewControllerPushVc:)]) {
+        [self.delegate viewControllerPushVc:self.fireView];
+    }
 }
 
 - (void)zhnActiveFireViewSwipeLikeIndex:(NSInteger)index{

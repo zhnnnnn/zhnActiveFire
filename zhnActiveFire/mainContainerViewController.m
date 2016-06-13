@@ -8,7 +8,10 @@
 
 #import "mainContainerViewController.h"
 #import "ViewController.h"
-@interface mainContainerViewController ()
+#import "detailViewController.h"
+#import "custonTransition.h"
+#import "zhnAtiveFireView.h"
+@interface mainContainerViewController ()<ViewControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,weak) UIScrollView * backScrollview;
 @end
 
@@ -16,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.delegate = self;
     
     UIScrollView * backScrollView = [[UIScrollView alloc]init];
     [self.view addSubview:backScrollView];
@@ -27,7 +32,7 @@
     backScrollView.bounces = NO;
     self.backScrollview = backScrollView;
     [self addChildViewControllers];
-    
+
     
     self.navigationController.navigationBar.hidden = YES;
     UIView * fakeNaviBar = [[UIView alloc]init];
@@ -51,7 +56,7 @@
     [self addChildViewController:centVC];
     [self.backScrollview addSubview:centVC.view];
     centVC.view.frame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-    
+    centVC.delegate = self;
     // 右边
     UIViewController * rightVC = [[UIViewController alloc]init];
     rightVC.view.backgroundColor = [UIColor blackColor];
@@ -60,6 +65,22 @@
     rightVC.view.frame = CGRectMake(self.view.bounds.size.width * 2, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 }
 
+
+- (void)viewControllerPushVc:(zhnAtiveFireView *)fireView{
+    
+    self.fireView = fireView;
+    detailViewController * detailVC = [[detailViewController alloc]init];
+    self.navigationController.delegate = self;
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    
+   
+    return [[custonTransition alloc]init];
+
+}
 
 
 - (void)didReceiveMemoryWarning {

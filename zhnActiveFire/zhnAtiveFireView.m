@@ -101,7 +101,7 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢和不喜欢提示的v
                 UIView * backView = [[UIView alloc]init];
                 [tempView addSubview:backView];
                 backView.layer.borderColor = [UIColor blackColor].CGColor;
-                backView.layer.borderWidth = 1;
+                backView.layer.borderWidth = 0.3;
                 backView.layer.cornerRadius = 5;
                 [backView mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.edges.mas_equalTo(UIEdgeInsetsZero);
@@ -452,6 +452,21 @@ static const CGFloat KnoticeViewWidthHeight = 50;// 喜欢和不喜欢提示的v
                 }
             }
         }];
+    }
+}
+
+- (zhnActiveShowImageView *)topShowImageView{
+    zhnActiveShowImageView * tempImageView;
+    for (UIView * subView in showContentView.subviews) {
+        if ([subView isKindOfClass:[zhnActiveShowImageView class]]) {
+            tempImageView = (zhnActiveShowImageView *)subView;
+        }
+    }
+    
+    if (tempImageView) {
+        return tempImageView;
+    }else{
+        return nil;
     }
 }
 

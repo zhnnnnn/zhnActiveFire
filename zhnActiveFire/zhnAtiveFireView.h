@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "zhnActiveShowImageView.h"
 
 /**
  *  数据源方法
@@ -79,5 +79,10 @@
  *  @param like 是不是喜欢 (判断作用动画)
  */
 - (void)nextPicWithLike:(BOOL)like;
+
+/**
+ *  最上面显示的imageview 主要是为了自定义转场用
+ */
+@property (nonatomic,strong) zhnActiveShowImageView * topShowImageView;
 
 @end
